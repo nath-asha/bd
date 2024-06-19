@@ -1,0 +1,20 @@
+.movie-list {
+    margin-top: 20px;
+  }
+  
+  .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-form input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .search-form button {
+    padding: 10px;
+  }
+  

@@ -1,10 +1,11 @@
 import React from 'react';
 import MovieList from './components/MovieList';
 import AddMovie from './components/AddMovie';
+import './App.css';
 
 const App = () => {
   return (
-    <div>
+    <div className="app-container">
       <h1>Movie Catalogue</h1>
       <AddMovie />
       <MovieList />

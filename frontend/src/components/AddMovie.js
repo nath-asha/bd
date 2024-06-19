@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AddMovie.css';
 
 const AddMovie = () => {
   const [movie, setMovie] = useState({
     title: '',
-    director: '',
     genre: '',
     year: ''
   });
@@ -23,7 +23,7 @@ const AddMovie = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="add-movie-form" onSubmit={handleSubmit}>
       <input type="text" name="title" value={movie.title} onChange={handleChange} placeholder="Title" required />
       <input type="text" name="director" value={movie.director} onChange={handleChange} placeholder="Director" required />
       <input type="text" name="genre" value={movie.genre} onChange={handleChange} placeholder="Genre" required />

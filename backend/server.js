@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
+console.log(process.env.MONGO_URI);
 
 const app = express();
 
@@ -11,11 +12,11 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+}).then(() => console.log("MongoDB connected"))
+  .catch(err => console.log(err));
 
 const movieSchema = new mongoose.Schema({
   title: String,
-  director: String,
   genre: String,
   year: Number
 });
@@ -48,7 +49,6 @@ app.get('/search', async (req, res) => {
   const movies = await Movie.find({
     $or: [
       { title: new RegExp(query, 'i') },
-      { director: new RegExp(query, 'i') },
       { genre: new RegExp(query, 'i') }
     ]
   });

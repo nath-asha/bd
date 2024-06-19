@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './MovieList.css';
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -26,8 +27,8 @@ const MovieList = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSearch}>
+    <div className="movie-list">
+      <form className="search-form" onSubmit={handleSearch}>
         <input
           type="text"
           value={search}
@@ -40,7 +41,7 @@ const MovieList = () => {
         {movies.map(movie => (
           <li key={movie._id}>
             {movie.title} ({movie.year}) - {movie.director}
-            <button onClick={() => handleDelete(movie._id)}>Delete</button>
+            <button className="delete-btn" onClick={() => handleDelete(movie._id)}>Delete</button>
           </li>
         ))}
       </ul>
